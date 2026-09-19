@@ -22,11 +22,12 @@ def find_employee(employees, name):
 
 choice = ""
 
-while choice != "4":
+while choice != "5":
     print("\n1. Show employees")
     print("2. Find employee")
     print("3. Add employee")
-    print("4. Exit")
+    print("4. Remove employee")
+    print("5. Exit")
 
     choice = input("Choose an option: ")
 
@@ -58,6 +59,16 @@ while choice != "4":
         print("Employee added.")
 
     elif choice == "4":
+        name = input("Enter employee name: ")
+        employee = find_employee(employees, name)
+
+        if employee:
+            employees.remove(employee)
+            print("Employee removed.")
+        else:
+            print("Employee not found")
+
+    elif choice == "5":
         print("Goodbye!")
 
     else:
