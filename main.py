@@ -79,6 +79,7 @@ while choice != "5":
         }
 
         employees.append(new_employee)
+        save_employees(employees)
         print("Employee added.")
 
     elif choice == "4":
@@ -92,6 +93,7 @@ while choice != "5":
 
         if employee:
             employees.remove(employee)
+            save_employees(employees)
             print("Employee removed.")
         else:
             print("Employee not found")
