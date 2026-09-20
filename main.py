@@ -1,9 +1,7 @@
-employees = [
-    {"name": "Alice", "age": 22, "salary": 9000, "active": True},
-    {"name": "Brian", "age": 17, "salary": 12000, "active": True},
-    {"name": "Chris", "age": 30, "salary": 15000, "active": False}
-]
+import json
 
+with open("employees.json", "r") as file:
+    employees = json.load(file)
 
 def show_employees(employees):
     for person in employees:
@@ -18,6 +16,11 @@ def find_employee(employees, name):
         if person['name'] == name:
             return person
     return None
+
+def save_employees(employees):
+    with open("employees.json", "w") as file:
+        json.dump(employees, file, indent=4)
+
 
 
 choice = ""
@@ -36,17 +39,37 @@ while choice != "5":
 
     elif choice == "2":
         name = input("Enter employee name: ")
+
+        if not name:
+            print("Name cannot be empty.")
+            continue
+
         employee = find_employee(employees, name)
 
         if employee:
             print(employee)
+
         else:
             print("Employee not found")
 
     elif choice == "3":
         name = input("Enter employee name: ")
-        age = int(input("Enter employee age: "))
-        salary = int(input("Enter employee salary: "))
+
+        if not name:
+            print("Name cannot be empty.")
+            continue
+
+        try:
+            age = int(input("Enter employee age: "))
+        except ValueError:
+            print("Invalid age. Please enter a number.")
+            continue
+
+        try:
+            salary = int(input("Enter employee salary: "))      
+        except ValueError: 
+            print("Invalid salary. Please enter a number.")
+            continue    
 
         new_employee = {
             "name": name,
@@ -60,6 +83,11 @@ while choice != "5":
 
     elif choice == "4":
         name = input("Enter employee name: ")
+
+        if not name:
+            print("Name cannot be empty.")
+            continue
+
         employee = find_employee(employees, name)
 
         if employee:
