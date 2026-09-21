@@ -36,25 +36,35 @@ def save_employees(employees):
     with open("employees.json", "w") as file:
         json.dump(employees, file, indent=4)
 
-def add_employee(employees):
+def get_employee_details():
     name = input("Enter employee name: ")
-
+    
     if not name:
         print("Name cannot be empty.")
-        return
-
+        return None
+    
     try:
         age = int(input("Enter employee age: "))
     except ValueError:
         print("Invalid age. Please enter a number.")
-        return
+        return None
 
     try:
-        salary = int(input("Enter employee salary: "))      
-    except ValueError: 
+        salary = int(input("Enter employee salary: "))
+    except ValueError:
         print("Invalid salary. Please enter a number.")
-        return    
+        return None
 
+    return name, age, salary
+
+def add_employee(employees):
+    details = get_employee_details()
+
+    if details is None:
+        return
+
+    name, age, salary = details
+   
     new_employee = {
         "name": name,
         "age": age,
@@ -113,3 +123,4 @@ def menu(employees):
             print("Invalid choice")
 
 menu(employees)
+
