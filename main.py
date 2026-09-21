@@ -82,31 +82,34 @@ def remove_employee(employees):
     else:
         print("Employee not found")
 
-choice = ""
+def menu(employees):
+    choice = ""
 
-while choice != "5":
-    print("\n1. Show employees")
-    print("2. Find employee")
-    print("3. Add employee")
-    print("4. Remove employee")
-    print("5. Exit")
+    while choice != "5":
+        print("\n1. Show employees")
+        print("2. Find employee")
+        print("3. Add employee")
+        print("4. Remove employee")
+        print("5. Exit")
 
-    choice = input("Choose an option: ")
+        choice = input("Choose an option: ")
 
-    if choice == "1":
-        show_employees(employees)
+        if choice == "1":
+            show_employees(employees)
 
-    elif choice == "2":
-        find_and_display_employee(employees)
+        elif choice == "2":
+            find_and_display_employee(employees)
 
-    elif choice == "3":
-        add_employee(employees)
-        
-    elif choice == "4":
-        remove_employee(employees)
+        elif choice == "3":
+            add_employee(employees)
+            
+        elif choice == "4":
+            remove_employee(employees)
 
-    elif choice == "5":
-        print("Goodbye!")
+        elif choice == "5":
+            print("Goodbye!")
 
-    else:
-        print("Invalid choice")
+        else:
+            print("Invalid choice")
+
+menu(employees)
