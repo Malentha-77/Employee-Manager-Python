@@ -16,5 +16,11 @@
         "age": 30,
         "salary": 15000,
         "active": false
+    },
+    {
+        "name": "David ",
+        "age": 25,
+        "salary": 11000,
+        "active": true
     }
 ]
