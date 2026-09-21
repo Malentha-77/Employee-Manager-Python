@@ -13,7 +13,7 @@ def show_employees(employees):
 
 def find_employee(employees, name):
     for person in employees:
-        if person['name'] == name:
+        if person['name'].lower() == name.lower():
             return person
     return None
 
