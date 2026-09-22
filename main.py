@@ -92,15 +92,22 @@ def remove_employee(employees):
     else:
         print("Employee not found")
 
+def show_active_employees(employees):
+    for person in employees:
+        if person['active']:
+            print(person['name'], person['age'], person['salary'])
+
+
 def menu(employees):
     choice = ""
 
-    while choice != "5":
+    while choice != "6":
         print("\n1. Show employees")
         print("2. Find employee")
         print("3. Add employee")
         print("4. Remove employee")
-        print("5. Exit")
+        print("5. Show active employees")
+        print("6. Exit")
 
         choice = input("Choose an option: ")
 
@@ -117,6 +124,9 @@ def menu(employees):
             remove_employee(employees)
 
         elif choice == "5":
+            show_active_employees(employees)
+
+        elif choice == "6":
             print("Goodbye!")
 
         else:
