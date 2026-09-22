@@ -64,6 +64,10 @@ def add_employee(employees):
         return
 
     name, age, salary = details
+
+    if find_employee(employees, name):
+            print("Employee already exists.")
+            return
    
     new_employee = {
         "name": name,
