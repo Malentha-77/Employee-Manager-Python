@@ -1,11 +1,5 @@
 [
     {
-        "name": "Alice",
-        "age": 22,
-        "salary": 9000,
-        "active": true
-    },
-    {
         "name": "Brian",
         "age": 17,
         "salary": 12000,
@@ -27,6 +21,18 @@
         "name": "Jack",
         "age": 22,
         "salary": 15000,
+        "active": true
+    },
+    {
+        "name": "Sarah",
+        "age": 28,
+        "salary": 14000,
+        "active": true
+    },
+    {
+        "name": "Ralf",
+        "age": 27,
+        "salary": 20000,
         "active": true
     }
 ]
