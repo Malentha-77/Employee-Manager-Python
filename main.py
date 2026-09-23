@@ -1,8 +1,9 @@
 import json
-
+# Load employee data 
 with open("employees.json", "r") as file:
     employees = json.load(file)
 
+#Display all employees
 def show_employees(employees):
     for person in employees:
         print(
@@ -10,13 +11,14 @@ def show_employees(employees):
             f"Salary: {person['salary']} - Active: {person['active']}"
         )
 
-
+# Search for an employee by name
 def find_employee(employees, name):
     for person in employees:
         if person['name'].lower() == name.lower():
             return person
     return None
 
+# Find and display an employee's details
 def find_and_display_employee(employees):
     name = input("Enter employee name: ")
     
@@ -32,10 +34,12 @@ def find_and_display_employee(employees):
     else:
         print("Employee not found")
 
+# Save the updated employee data
 def save_employees(employees):
     with open("employees.json", "w") as file:
         json.dump(employees, file, indent=4)
 
+# Get employee details from user input
 def get_employee_details():
     name = input("Enter employee name: ")
     
@@ -57,6 +61,7 @@ def get_employee_details():
 
     return name, age, salary
 
+# Add a new employee
 def add_employee(employees):
     details = get_employee_details()
 
@@ -75,11 +80,12 @@ def add_employee(employees):
         "salary": salary,
         "active": True
     }
-
+# Add the new employee to the list and save the updated data
     employees.append(new_employee)
     save_employees(employees)
     print("Employee added.")
 
+# Remove an employee by name
 def remove_employee(employees):
     name = input("Enter employee name: ")
 
@@ -96,12 +102,13 @@ def remove_employee(employees):
     else:
         print("Employee not found")
 
+# Show only active employees
 def show_active_employees(employees):
     for person in employees:
         if person['active']:
             print(person['name'], person['age'], person['salary'])
 
-
+# Menu function to interact with the user
 def menu(employees):
     choice = ""
 
